@@ -72,7 +72,7 @@ variplot <- ggplot(BC, aes(factor(year),Emissions,fill = type)) +
     guides(fill = FALSE)+
     facet_grid(. ~ type, scales = "free", space = "free") + 
     labs(x="year", y=expression("Total PM2.5 Emissions (tons)")) + 
-    labs(title = expression("PM2.5 Emissions, Baltimore City 1999-2008 by Source Type"))
+    labs(title = expression("PM2.5 Emissions, Baltimore City by Source Type (1999,2002,2005,2008)"))
 print(variplot)
 
 dev.off()
@@ -101,7 +101,7 @@ png(filename = "plot4.png")
 mplot <- ggplot(merge.sum, aes(x = Year, y = Emissions/10^5)) + 
     geom_bar(stat = "identity", fill = "grey", width = 0.75) +
     labs(x = "year", y = expression("Total PM2.5 Emission (10^5 Tons)")) + 
-    labs(title = expression("PM2.5 Coal Combustion Emissions from 1999-2008 Across US"))
+    labs(title = expression("PM2.5 Coal Emissions Across US (1999,2002,2005,2008)"))
   
 print(mplot) 
 dev.off()
@@ -162,7 +162,7 @@ boom <- ggplot(BCVtoLAV, aes(x = factor(year), y = Emissions, fill = city)) +
     geom_bar(aes(fill = year), stat = "identity") +
     facet_grid(scales = "free", space = "free", . ~ city) +
     labs(x = "year", y = expression("Total PM2.5 Emission (Kilo-Tons)")) + 
-    labs(title = expression("PM2.5 Motor Vehicle Source Emissions in Baltimore & LA, 1999-2008"))
+    labs(title = expression("PM2.5 Motor Vehicle Emissions in Baltimore & LA, (1999,2002,2005,2008)"))
 
 print(boom)
 
